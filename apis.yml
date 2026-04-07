@@ -1,6 +1,7 @@
 aid: partnerstack
 name: PartnerStack
-description: 'Explore our guides and examples to integrate with PartnerStack '
+description: >-
+  Explore our guides and examples to integrate with PartnerStack.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -15,7 +16,8 @@ specificationVersion: '0.19'
 apis:
   - aid: partnerstack:partnerstack
     name: PartnerStack
-    description: 'Explore our guides and examples to integrate with PartnerStack '
+    description: >-
+      Explore our guides and examples to integrate with PartnerStack.
     humanURL: ' https://docs.partnerstack.com/'
     tags:
       - API
