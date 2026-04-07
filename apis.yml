@@ -6,8 +6,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-02-08'
 modified: '2025-02-08'
 url: >-
@@ -19,8 +18,7 @@ apis:
     description: >-
       Explore our guides and examples to integrate with PartnerStack.
     humanURL: ' https://docs.partnerstack.com/'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://docs.partnerstack.com/'
