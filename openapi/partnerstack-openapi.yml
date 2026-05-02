@@ -1,0 +1,297 @@
+openapi: 3.0.3
+info:
+  title: PartnerStack API
+  description: >-
+    The PartnerStack API allows you to integrate with the PartnerStack platform
+    to manage partnerships, customers, deals, transactions, rewards, and more.
+  version: '2.0'
+  contact:
+    name: PartnerStack Support
+    url: https://docs.partnerstack.com/
+servers:
+  - url: https://api.partnerstack.com/api/v2
+    description: PartnerStack API v2
+security:
+  - basicAuth: []
+  - bearerAuth: []
+paths:
+  /partnerships:
+    get:
+      summary: List partnerships
+      description: Returns partnerships managed or owned by the authenticated user.
+      operationId: listPartnerships
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/StartingAfter'
+        - $ref: '#/components/parameters/EndingBefore'
+        - name: order_by
+          in: query
+          schema:
+            type: string
+        - name: has_sub_id
+          in: query
+          schema:
+            type: boolean
+        - name: include_offers
+          in: query
+          schema:
+            type: boolean
+        - name: include_archived
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Partnerships list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+  /customers:
+    get:
+      summary: List customers
+      description: Returns a paginated list of customers ordered by creation date.
+      operationId: listCustomers
+      parameters:
+        - $ref: '#/components/parameters/MinCreated'
+        - $ref: '#/components/parameters/MaxCreated'
+        - $ref: '#/components/parameters/MinUpdated'
+        - $ref: '#/components/parameters/MaxUpdated'
+        - name: group
+          in: query
+          schema:
+            type: string
+        - name: partner_key
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/StartingAfter'
+        - $ref: '#/components/parameters/EndingBefore'
+      responses:
+        '200':
+          description: Customers list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+    post:
+      summary: Create a customer
+      description: Creates a new customer.
+      operationId: createCustomer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, partner_key]
+              properties:
+                customer_key:
+                  type: string
+                  nullable: true
+                email:
+                  type: string
+                  format: email
+                  maxLength: 255
+                partner_key:
+                  type: string
+                name:
+                  type: string
+                  maxLength: 100
+                meta:
+                  type: object
+                provider_key:
+                  type: string
+      responses:
+        '200':
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+  /deals:
+    get:
+      summary: List deals
+      description: Returns a list of deals sorted by creation date.
+      operationId: listDeals
+      parameters:
+        - $ref: '#/components/parameters/MinCreated'
+        - $ref: '#/components/parameters/MaxCreated'
+        - $ref: '#/components/parameters/MinUpdated'
+        - $ref: '#/components/parameters/MaxUpdated'
+        - name: group
+          in: query
+          schema:
+            type: string
+        - name: partner_key
+          in: query
+          schema:
+            type: string
+        - name: customer_key
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/StartingAfter'
+        - $ref: '#/components/parameters/EndingBefore'
+      responses:
+        '200':
+          description: Deals list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+  /transactions:
+    get:
+      summary: List transactions
+      description: Returns transactions sorted by creation date.
+      operationId: listTransactions
+      parameters:
+        - $ref: '#/components/parameters/MinCreated'
+        - $ref: '#/components/parameters/MaxCreated'
+        - name: order_by
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/StartingAfter'
+        - $ref: '#/components/parameters/EndingBefore'
+      responses:
+        '200':
+          description: Transactions list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+  /rewards:
+    get:
+      summary: List rewards
+      description: Returns a paginated list of rewards.
+      operationId: listRewards
+      parameters:
+        - name: payment_status
+          in: query
+          schema:
+            type: string
+            enum: [available, in_transit, withdrawn, paid_externally, expired, failed, merging]
+        - name: order_by
+          in: query
+          schema:
+            type: string
+        - name: company_key
+          in: query
+          schema:
+            type: string
+        - name: group_key
+          in: query
+          schema:
+            type: string
+        - name: customer_key
+          in: query
+          schema:
+            type: string
+        - name: invoice_key
+          in: query
+          schema:
+            type: string
+        - name: keywords
+          in: query
+          schema:
+            type: string
+        - $ref: '#/components/parameters/MinCreated'
+        - $ref: '#/components/parameters/MaxCreated'
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/StartingAfter'
+        - $ref: '#/components/parameters/EndingBefore'
+      responses:
+        '200':
+          description: Rewards list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+        minimum: 1
+        maximum: 250
+    StartingAfter:
+      name: starting_after
+      in: query
+      schema:
+        type: string
+    EndingBefore:
+      name: ending_before
+      in: query
+      schema:
+        type: string
+    MinCreated:
+      name: min_created
+      in: query
+      schema:
+        type: integer
+        format: int64
+    MaxCreated:
+      name: max_created
+      in: query
+      schema:
+        type: integer
+        format: int64
+    MinUpdated:
+      name: min_updated
+      in: query
+      schema:
+        type: integer
+        format: int64
+    MaxUpdated:
+      name: max_updated
+      in: query
+      schema:
+        type: integer
+        format: int64
+  schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+        has_more:
+          type: boolean
+    Customer:
+      type: object
+      properties:
+        key:
+          type: string
+        customer_key:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        partner_key:
+          type: string
+        provider_key:
+          type: string
+        meta:
+          type: object
+        created_at:
+          type: integer
+          format: int64
