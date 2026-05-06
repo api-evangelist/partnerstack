@@ -1,0 +1,355 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PartnerStack API
+  description: The PartnerStack API allows you to integrate with the PartnerStack platform to manage partnerships, customers,
+    deals, transactions, rewards, and more.
+  tags:
+  - Partnerstack
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: partnerstack
+    baseUri: https://api.partnerstack.com/api/v2
+    description: PartnerStack API HTTP API.
+    authentication:
+      type: basic
+      username: '{{PARTNERSTACK_USERNAME}}'
+      password: '{{PARTNERSTACK_PASSWORD}}'
+    resources:
+    - name: partnerships
+      path: /partnerships
+      operations:
+      - name: listpartnerships
+        method: GET
+        description: List partnerships
+        inputParameters:
+        - name: order_by
+          in: query
+          type: string
+        - name: has_sub_id
+          in: query
+          type: boolean
+        - name: include_offers
+          in: query
+          type: boolean
+        - name: include_archived
+          in: query
+          type: boolean
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: customers
+      path: /customers
+      operations:
+      - name: listcustomers
+        method: GET
+        description: List customers
+        inputParameters:
+        - name: group
+          in: query
+          type: string
+        - name: partner_key
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcustomer
+        method: POST
+        description: Create a customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deals
+      path: /deals
+      operations:
+      - name: listdeals
+        method: GET
+        description: List deals
+        inputParameters:
+        - name: group
+          in: query
+          type: string
+        - name: partner_key
+          in: query
+          type: string
+        - name: customer_key
+          in: query
+          type: array
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transactions
+      path: /transactions
+      operations:
+      - name: listtransactions
+        method: GET
+        description: List transactions
+        inputParameters:
+        - name: order_by
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: rewards
+      path: /rewards
+      operations:
+      - name: listrewards
+        method: GET
+        description: List rewards
+        inputParameters:
+        - name: payment_status
+          in: query
+          type: string
+        - name: order_by
+          in: query
+          type: string
+        - name: company_key
+          in: query
+          type: string
+        - name: group_key
+          in: query
+          type: string
+        - name: customer_key
+          in: query
+          type: string
+        - name: invoice_key
+          in: query
+          type: string
+        - name: keywords
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: partnerstack-rest
+    description: REST adapter for PartnerStack API.
+    resources:
+    - path: /partnerships
+      name: listpartnerships
+      operations:
+      - method: GET
+        name: listpartnerships
+        description: List partnerships
+        call: partnerstack.listpartnerships
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customers
+      name: listcustomers
+      operations:
+      - method: GET
+        name: listcustomers
+        description: List customers
+        call: partnerstack.listcustomers
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /customers
+      name: createcustomer
+      operations:
+      - method: POST
+        name: createcustomer
+        description: Create a customer
+        call: partnerstack.createcustomer
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /deals
+      name: listdeals
+      operations:
+      - method: GET
+        name: listdeals
+        description: List deals
+        call: partnerstack.listdeals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /transactions
+      name: listtransactions
+      operations:
+      - method: GET
+        name: listtransactions
+        description: List transactions
+        call: partnerstack.listtransactions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /rewards
+      name: listrewards
+      operations:
+      - method: GET
+        name: listrewards
+        description: List rewards
+        call: partnerstack.listrewards
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: partnerstack-mcp
+    transport: http
+    description: MCP adapter for PartnerStack API for AI agent use.
+    tools:
+    - name: listpartnerships
+      description: List partnerships
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: partnerstack.listpartnerships
+      with:
+        order_by: tools.order_by
+        has_sub_id: tools.has_sub_id
+        include_offers: tools.include_offers
+        include_archived: tools.include_archived
+      inputParameters:
+      - name: order_by
+        type: string
+        description: order_by
+      - name: has_sub_id
+        type: boolean
+        description: has_sub_id
+      - name: include_offers
+        type: boolean
+        description: include_offers
+      - name: include_archived
+        type: boolean
+        description: include_archived
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcustomers
+      description: List customers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: partnerstack.listcustomers
+      with:
+        group: tools.group
+        partner_key: tools.partner_key
+      inputParameters:
+      - name: group
+        type: string
+        description: group
+      - name: partner_key
+        type: string
+        description: partner_key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createcustomer
+      description: Create a customer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: partnerstack.createcustomer
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdeals
+      description: List deals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: partnerstack.listdeals
+      with:
+        group: tools.group
+        partner_key: tools.partner_key
+        customer_key: tools.customer_key
+      inputParameters:
+      - name: group
+        type: string
+        description: group
+      - name: partner_key
+        type: string
+        description: partner_key
+      - name: customer_key
+        type: array
+        description: customer_key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtransactions
+      description: List transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: partnerstack.listtransactions
+      with:
+        order_by: tools.order_by
+      inputParameters:
+      - name: order_by
+        type: string
+        description: order_by
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listrewards
+      description: List rewards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: partnerstack.listrewards
+      with:
+        payment_status: tools.payment_status
+        order_by: tools.order_by
+        company_key: tools.company_key
+        group_key: tools.group_key
+        customer_key: tools.customer_key
+        invoice_key: tools.invoice_key
+        keywords: tools.keywords
+      inputParameters:
+      - name: payment_status
+        type: string
+        description: payment_status
+      - name: order_by
+        type: string
+        description: order_by
+      - name: company_key
+        type: string
+        description: company_key
+      - name: group_key
+        type: string
+        description: group_key
+      - name: customer_key
+        type: string
+        description: customer_key
+      - name: invoice_key
+        type: string
+        description: invoice_key
+      - name: keywords
+        type: string
+        description: keywords
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    PARTNERSTACK_USERNAME: PARTNERSTACK_USERNAME
+    PARTNERSTACK_PASSWORD: PARTNERSTACK_PASSWORD
