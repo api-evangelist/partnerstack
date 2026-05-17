@@ -33,7 +33,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.partnerstack.com/
-      - type: API Reference
+      - type: APIReference
         url: https://docs.partnerstack.com/reference
       - type: OpenAPI
         url: >-
@@ -43,7 +43,7 @@ common:
     url: https://partnerstack.com/
   - type: Documentation
     url: https://docs.partnerstack.com/
-  - type: API Reference
+  - type: APIReference
     url: https://docs.partnerstack.com/reference
 maintainers:
   - FN: Kin Lane
