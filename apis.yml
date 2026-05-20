@@ -7,42 +7,44 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- Partnerships
-- Affiliate
-- SaaS
+  - Partnerships
+  - Affiliate
+  - SaaS
 created: '2025-02-08'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/partnerstack/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: partnerstack:partnerstack
-  name: PartnerStack
-  description: Programmatic access to PartnerStack partnerships, customers, deals, transactions, and rewards via the v2 REST
-    API.
-  humanURL: https://docs.partnerstack.com/
-  baseURL: https://api.partnerstack.com/api/v2
-  tags:
-  - Partnerships
-  - Affiliate
-  - SaaS
-  properties:
+  - aid: partnerstack:partnerstack
+    name: PartnerStack
+    description: Programmatic access to PartnerStack partnerships, customers, deals, transactions, and rewards via the v2 REST
+      API.
+    humanURL: https://docs.partnerstack.com/
+    baseURL: https://api.partnerstack.com/api/v2
+    tags:
+    - Partnerships
+    - Affiliate
+    - SaaS
+    properties:
+    - type: Documentation
+      url: https://docs.partnerstack.com/
+    - type: APIReference
+      url: https://docs.partnerstack.com/reference
+    - type: OpenAPI
+      url: https://raw.githubusercontent.com/api-evangelist/partnerstack/refs/heads/main/openapi/partnerstack-openapi.yml
+    - type: NaftikoCapability
+      url: capabilities/partnerstack.yaml
+common:
+  - type: GitHubOrganization
+    url: https://github.com/partnerstack
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/partnerstack
+  - type: Website
+    url: https://partnerstack.com/
   - type: Documentation
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/partnerstack/refs/heads/main/openapi/partnerstack-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/partnerstack.yaml
-common:
-- type: LinkedIn
-  url: https://www.linkedin.com/company/partnerstack
-- type: Website
-  url: https://partnerstack.com/
-- type: Documentation
-  url: https://docs.partnerstack.com/
-- type: APIReference
-  url: https://docs.partnerstack.com/reference
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
