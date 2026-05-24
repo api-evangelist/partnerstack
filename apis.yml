@@ -45,6 +45,8 @@ common:
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
+  - type: LLMsTxt
+    url: https://docs.partnerstack.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
