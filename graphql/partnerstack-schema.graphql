@@ -1,0 +1,1067 @@
+"""
+PartnerStack GraphQL Schema
+Conceptual schema for PartnerStack partner relationship management (PRM) platform.
+PartnerStack provides programmatic access to partnerships, customers, deals, transactions, and rewards.
+API Reference: https://docs.partnerstack.com/reference
+"""
+
+scalar DateTime
+scalar JSON
+scalar URL
+
+# ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum PartnerStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+  ACTIVE
+  INACTIVE
+}
+
+enum PartnerType {
+  AFFILIATE
+  REFERRAL
+  RESELLER
+  INFLUENCER
+  INTEGRATION
+  TECHNOLOGY
+  AGENCY
+}
+
+enum CampaignType {
+  AFFILIATE
+  REFERRAL
+  RESELLER
+  LEAD_GENERATION
+  CO_SELL
+}
+
+enum CampaignGoal {
+  SIGNUPS
+  PURCHASES
+  DEMOS
+  TRIALS
+  UPGRADES
+  CUSTOM
+}
+
+enum OfferType {
+  PERCENTAGE_DISCOUNT
+  FIXED_DISCOUNT
+  FREE_TRIAL
+  CREDITS
+  CUSTOM
+}
+
+enum CommissionType {
+  PERCENTAGE
+  FLAT
+  TIERED
+  RECURRING
+  ONE_TIME
+}
+
+enum RewardStatus {
+  PENDING
+  APPROVED
+  PAID
+  CANCELLED
+  HELD
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  DISQUALIFIED
+  CLOSED_WON
+  CLOSED_LOST
+}
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  REFUNDED
+  DISPUTED
+}
+
+enum PayoutStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+  ON_HOLD
+}
+
+enum PayoutMethod {
+  PAYPAL
+  STRIPE
+  WIRE_TRANSFER
+  CHECK
+  CRYPTO
+  STORE_CREDIT
+}
+
+enum UserRole {
+  ADMIN
+  MANAGER
+  OPERATOR
+  VIEWER
+  PARTNER
+}
+
+enum ApplicationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  WAITLISTED
+}
+
+# ─── Core Partner Types ───────────────────────────────────────────────────────
+
+type Partner {
+  id: ID!
+  key: String!
+  name: String
+  email: String!
+  status: PartnerStatus!
+  type: PartnerType
+  details: PartnerDetails
+  group: PartnerGroup
+  campaign: Campaign
+  links: [PartnerLink!]
+  referrals: [Referral!]
+  rewards: [Reward!]
+  payouts: [Payout!]
+  transactions: [Transaction!]
+  score: PartnerScore
+  application: Application
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  customFields: JSON
+}
+
+type PartnerDetails {
+  firstName: String
+  lastName: String
+  company: String
+  website: URL
+  phone: String
+  address: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+  bio: String
+  profileImage: URL
+  socialLinks: JSON
+  taxId: String
+  paymentInfo: JSON
+}
+
+type Affiliate {
+  id: ID!
+  partner: Partner!
+  affiliateCode: String!
+  clickCount: Int!
+  conversionCount: Int!
+  conversionRate: Float
+  totalEarnings: Float!
+  pendingEarnings: Float!
+  links: [Link!]
+  coupons: [Coupon!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Referral {
+  id: ID!
+  partner: Partner!
+  customer: Customer
+  lead: Lead
+  link: Link
+  campaign: Campaign
+  status: LeadStatus!
+  value: Float
+  commission: Commission
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Reseller {
+  id: ID!
+  partner: Partner!
+  resellerTier: String
+  discountRate: Float
+  dealRegistrations: [Transaction!]
+  totalRevenue: Float!
+  customPricing: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Group Types ──────────────────────────────────────────────────────────────
+
+type GroupPartner {
+  id: ID!
+  partner: Partner!
+  group: PartnerGroup!
+  role: String
+  joinedAt: DateTime!
+}
+
+type PartnerGroup {
+  id: ID!
+  key: String!
+  name: String!
+  details: GroupDetails
+  campaign: Campaign
+  partners: [GroupPartner!]
+  memberCount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type GroupDetails {
+  description: String
+  logoUrl: URL
+  website: URL
+  industry: String
+  region: String
+  tier: String
+  customFields: JSON
+}
+
+# ─── Campaign Types ───────────────────────────────────────────────────────────
+
+type Campaign {
+  id: ID!
+  key: String!
+  name: String!
+  details: CampaignDetails
+  type: CampaignType!
+  goal: CampaignGoal
+  offers: [Offer!]
+  links: [Link!]
+  coupons: [Coupon!]
+  partners: [Partner!]
+  groups: [PartnerGroup!]
+  analytics: Analytics
+  isActive: Boolean!
+  startDate: DateTime
+  endDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CampaignDetails {
+  description: String
+  targetAudience: String
+  landingPageUrl: URL
+  termsAndConditions: String
+  banners: [URL]
+  emailTemplates: JSON
+  defaultCommission: Commission
+  defaultOffer: Offer
+  trackingParameters: JSON
+}
+
+# ─── Link Types ───────────────────────────────────────────────────────────────
+
+type Link {
+  id: ID!
+  key: String!
+  details: LinkDetails
+  partner: Partner
+  campaign: Campaign
+  alias: LinkAlias
+  referralLink: ReferralLink
+  clickCount: Int!
+  conversionCount: Int!
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type LinkDetails {
+  label: String
+  description: String
+  destinationUrl: URL!
+  trackingUrl: URL!
+  utmParameters: JSON
+  tags: [String!]
+}
+
+type LinkAlias {
+  id: ID!
+  alias: String!
+  link: Link!
+  isActive: Boolean!
+  createdAt: DateTime!
+}
+
+type ReferralLink {
+  id: ID!
+  link: Link!
+  partner: Partner!
+  referralCode: String!
+  shortUrl: URL!
+  clickCount: Int!
+  signupCount: Int!
+  createdAt: DateTime!
+}
+
+type PartnerLink {
+  id: ID!
+  partner: Partner!
+  link: Link!
+  customAlias: String
+  isDefault: Boolean!
+  createdAt: DateTime!
+}
+
+# ─── Offer and Commission Types ───────────────────────────────────────────────
+
+type Offer {
+  id: ID!
+  key: String!
+  name: String!
+  details: OfferDetails
+  type: OfferType!
+  campaign: Campaign
+  coupons: [Coupon!]
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OfferDetails {
+  description: String
+  discountValue: Float
+  discountPercentage: Float
+  freeTrialDays: Int
+  creditAmount: Float
+  expirationDate: DateTime
+  usageLimit: Int
+  minimumPurchase: Float
+  applicableProducts: [String!]
+  termsAndConditions: String
+}
+
+type Commission {
+  id: ID!
+  type: CommissionType!
+  rate: Float
+  flatAmount: Float
+  rules: [CommissionRule!]
+  partner: Partner
+  campaign: Campaign
+  reward: Reward
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CommissionRule {
+  id: ID!
+  commission: Commission!
+  condition: String!
+  value: Float!
+  tierLevel: Int
+  startAmount: Float
+  endAmount: Float
+  description: String
+}
+
+# ─── Reward Types ─────────────────────────────────────────────────────────────
+
+type Reward {
+  id: ID!
+  key: String!
+  partner: Partner!
+  details: RewardDetails
+  status: RewardStatus!
+  commission: Commission
+  transaction: Transaction
+  payout: Payout
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type RewardDetails {
+  amount: Float!
+  currency: String!
+  description: String
+  rewardType: String
+  triggerEvent: String
+  referenceId: String
+  approvedAt: DateTime
+  paidAt: DateTime
+  notes: String
+}
+
+# ─── Coupon Types ─────────────────────────────────────────────────────────────
+
+type Coupon {
+  id: ID!
+  code: String!
+  details: CouponDetails
+  offer: Offer
+  partner: Partner
+  campaign: Campaign
+  usages: [CouponUsage!]
+  isActive: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CouponDetails {
+  description: String
+  discountType: String!
+  discountValue: Float!
+  maxUsages: Int
+  currentUsages: Int!
+  expirationDate: DateTime
+  minimumOrderValue: Float
+  applicableProducts: [String!]
+}
+
+type CouponUsage {
+  id: ID!
+  coupon: Coupon!
+  customer: Customer
+  transaction: Transaction
+  usedAt: DateTime!
+  discountApplied: Float!
+}
+
+# ─── Lead Types ───────────────────────────────────────────────────────────────
+
+type Lead {
+  id: ID!
+  key: String!
+  details: LeadDetails
+  status: LeadStatus!
+  partner: Partner
+  campaign: Campaign
+  referral: Referral
+  customer: Customer
+  transactions: [Transaction!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type LeadDetails {
+  firstName: String
+  lastName: String
+  email: String!
+  company: String
+  phone: String
+  website: URL
+  industry: String
+  employeeCount: String
+  notes: String
+  source: String
+  qualificationScore: Int
+  customFields: JSON
+}
+
+# ─── Transaction Types ────────────────────────────────────────────────────────
+
+type Transaction {
+  id: ID!
+  key: String!
+  details: TransactionDetails
+  status: TransactionStatus!
+  customer: Customer
+  partner: Partner
+  campaign: Campaign
+  lead: Lead
+  coupon: Coupon
+  rewards: [Reward!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TransactionDetails {
+  amount: Float!
+  currency: String!
+  description: String
+  referenceId: String
+  productId: String
+  productName: String
+  subscriptionId: String
+  invoiceId: String
+  metadata: JSON
+  confirmedAt: DateTime
+  cancelledAt: DateTime
+}
+
+# ─── Payout Types ─────────────────────────────────────────────────────────────
+
+type Payout {
+  id: ID!
+  key: String!
+  partner: Partner!
+  details: PayoutDetails
+  status: PayoutStatus!
+  method: PayoutMethod!
+  rewards: [Reward!]
+  invoicing: Invoicing
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PayoutDetails {
+  amount: Float!
+  currency: String!
+  fee: Float
+  netAmount: Float
+  description: String
+  referenceId: String
+  processedAt: DateTime
+  completedAt: DateTime
+  failureReason: String
+  paymentAccountDetails: JSON
+}
+
+type Invoicing {
+  id: ID!
+  payout: Payout!
+  billing: Billing!
+  invoiceNumber: String!
+  amount: Float!
+  currency: String!
+  dueDate: DateTime
+  issuedAt: DateTime!
+  paidAt: DateTime
+  lineItems: JSON
+}
+
+type Billing {
+  id: ID!
+  partner: Partner!
+  companyName: String
+  address: String
+  city: String
+  state: String
+  country: String
+  postalCode: String
+  taxId: String
+  vatNumber: String
+  invoices: [Invoicing!]
+}
+
+# ─── Customer Types ───────────────────────────────────────────────────────────
+
+type Customer {
+  id: ID!
+  key: String!
+  details: CustomerDetails
+  partner: Partner
+  lead: Lead
+  transactions: [Transaction!]
+  couponsUsed: [CouponUsage!]
+  referredAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type CustomerDetails {
+  firstName: String
+  lastName: String
+  email: String!
+  company: String
+  phone: String
+  country: String
+  subscriptionPlan: String
+  lifetimeValue: Float
+  customFields: JSON
+}
+
+# ─── Integration Types ────────────────────────────────────────────────────────
+
+type Integration {
+  id: ID!
+  name: String!
+  provider: String!
+  isEnabled: Boolean!
+  configuration: JSON
+  webhooks: [Webhook!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SlackIntegration {
+  id: ID!
+  integration: Integration!
+  workspaceId: String!
+  channelId: String
+  botToken: String
+  notificationEvents: [String!]
+  isEnabled: Boolean!
+  createdAt: DateTime!
+}
+
+type JiraIntegration {
+  id: ID!
+  integration: Integration!
+  projectKey: String!
+  boardId: String
+  issueTypeMapping: JSON
+  syncEnabled: Boolean!
+  lastSyncAt: DateTime
+  createdAt: DateTime!
+}
+
+# ─── Application Types ────────────────────────────────────────────────────────
+
+type Application {
+  id: ID!
+  details: ApplicationDetails
+  status: ApplicationStatus!
+  partner: Partner
+  campaign: Campaign
+  reviewedBy: User
+  reviewedAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ApplicationDetails {
+  firstName: String!
+  lastName: String!
+  email: String!
+  company: String
+  website: URL
+  phone: String
+  marketingChannels: [String!]
+  audience: String
+  monthlyTraffic: String
+  referralSource: String
+  notes: String
+  customFields: JSON
+}
+
+# ─── User and Team Types ──────────────────────────────────────────────────────
+
+type User {
+  id: ID!
+  details: UserDetails
+  role: UserRole!
+  team: Team
+  apiKeys: [APIKey!]
+  isActive: Boolean!
+  lastLoginAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type UserDetails {
+  firstName: String!
+  lastName: String!
+  email: String!
+  phone: String
+  profileImage: URL
+  timezone: String
+  language: String
+  notificationPreferences: JSON
+}
+
+type Team {
+  id: ID!
+  name: String!
+  users: [User!]
+  memberCount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Dashboard and Analytics Types ───────────────────────────────────────────
+
+type Dashboard {
+  id: ID!
+  name: String!
+  partner: Partner
+  campaign: Campaign
+  analytics: Analytics!
+  widgets: JSON
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Analytics {
+  id: ID!
+  campaign: Campaign
+  partner: Partner
+  period: String
+  clicks: Int!
+  conversions: Int!
+  conversionRate: Float
+  revenue: Float!
+  commissionsPaid: Float!
+  newPartners: Int
+  activePartners: Int
+  topPartners: [Partner!]
+  topLinks: [Link!]
+  topCoupons: [Coupon!]
+  revenueByPeriod: JSON
+  clicksByPeriod: JSON
+  conversionsByPeriod: JSON
+  generatedAt: DateTime!
+}
+
+type PartnerScore {
+  id: ID!
+  partner: Partner!
+  totalScore: Float!
+  engagementScore: Float
+  revenueScore: Float
+  activityScore: Float
+  qualityScore: Float
+  rank: Int
+  tier: String
+  calculatedAt: DateTime!
+}
+
+# ─── Auth Types ───────────────────────────────────────────────────────────────
+
+type APIKey {
+  id: ID!
+  key: String!
+  label: String
+  user: User
+  scopes: [String!]
+  isActive: Boolean!
+  lastUsedAt: DateTime
+  expiresAt: DateTime
+  createdAt: DateTime!
+}
+
+type Token {
+  id: ID!
+  token: String!
+  type: String!
+  user: User
+  partner: Partner
+  scopes: [String!]
+  isActive: Boolean!
+  expiresAt: DateTime!
+  createdAt: DateTime!
+}
+
+type Webhook {
+  id: ID!
+  url: URL!
+  events: [String!]!
+  integration: Integration
+  secret: String
+  isActive: Boolean!
+  lastTriggeredAt: DateTime
+  failureCount: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Query and Mutation Types ─────────────────────────────────────────────────
+
+type Query {
+  # Partner queries
+  partner(id: ID!): Partner
+  partners(
+    status: PartnerStatus
+    type: PartnerType
+    groupId: ID
+    campaignId: ID
+    limit: Int
+    offset: Int
+    search: String
+  ): [Partner!]!
+
+  # Affiliate queries
+  affiliate(partnerId: ID!): Affiliate
+  affiliates(campaignId: ID, limit: Int, offset: Int): [Affiliate!]!
+
+  # Referral queries
+  referral(id: ID!): Referral
+  referrals(partnerId: ID, status: LeadStatus, campaignId: ID, limit: Int, offset: Int): [Referral!]!
+
+  # Reseller queries
+  reseller(partnerId: ID!): Reseller
+  resellers(campaignId: ID, limit: Int, offset: Int): [Reseller!]!
+
+  # Group queries
+  partnerGroup(id: ID!): PartnerGroup
+  partnerGroups(campaignId: ID, limit: Int, offset: Int): [PartnerGroup!]!
+
+  # Campaign queries
+  campaign(id: ID!): Campaign
+  campaigns(type: CampaignType, isActive: Boolean, limit: Int, offset: Int): [Campaign!]!
+
+  # Link queries
+  link(id: ID!): Link
+  links(partnerId: ID, campaignId: ID, isActive: Boolean, limit: Int, offset: Int): [Link!]!
+
+  # Offer queries
+  offer(id: ID!): Offer
+  offers(campaignId: ID, type: OfferType, isActive: Boolean, limit: Int, offset: Int): [Offer!]!
+
+  # Coupon queries
+  coupon(id: ID!): Coupon
+  couponByCode(code: String!): Coupon
+  coupons(partnerId: ID, offerId: ID, isActive: Boolean, limit: Int, offset: Int): [Coupon!]!
+
+  # Lead queries
+  lead(id: ID!): Lead
+  leads(partnerId: ID, status: LeadStatus, campaignId: ID, limit: Int, offset: Int): [Lead!]!
+
+  # Transaction queries
+  transaction(id: ID!): Transaction
+  transactions(
+    partnerId: ID
+    customerId: ID
+    campaignId: ID
+    status: TransactionStatus
+    startDate: DateTime
+    endDate: DateTime
+    limit: Int
+    offset: Int
+  ): [Transaction!]!
+
+  # Reward queries
+  reward(id: ID!): Reward
+  rewards(partnerId: ID, status: RewardStatus, limit: Int, offset: Int): [Reward!]!
+
+  # Payout queries
+  payout(id: ID!): Payout
+  payouts(partnerId: ID, status: PayoutStatus, method: PayoutMethod, limit: Int, offset: Int): [Payout!]!
+
+  # Customer queries
+  customer(id: ID!): Customer
+  customers(partnerId: ID, limit: Int, offset: Int, search: String): [Customer!]!
+
+  # User queries
+  user(id: ID!): User
+  users(role: UserRole, isActive: Boolean, limit: Int, offset: Int): [User!]!
+  currentUser: User
+
+  # Application queries
+  application(id: ID!): Application
+  applications(status: ApplicationStatus, campaignId: ID, limit: Int, offset: Int): [Application!]!
+
+  # Analytics queries
+  analytics(campaignId: ID, partnerId: ID, period: String): Analytics
+  dashboard(id: ID!): Dashboard
+  dashboards(limit: Int, offset: Int): [Dashboard!]!
+  partnerScore(partnerId: ID!): PartnerScore
+
+  # Integration queries
+  integrations(isEnabled: Boolean): [Integration!]!
+  webhooks(isActive: Boolean, limit: Int, offset: Int): [Webhook!]!
+
+  # API Key queries
+  apiKeys(userId: ID): [APIKey!]!
+}
+
+type Mutation {
+  # Partner mutations
+  createPartner(input: PartnerInput!): Partner!
+  updatePartner(id: ID!, input: PartnerInput!): Partner!
+  approvePartner(id: ID!): Partner!
+  suspendPartner(id: ID!, reason: String): Partner!
+
+  # Group mutations
+  createPartnerGroup(input: PartnerGroupInput!): PartnerGroup!
+  updatePartnerGroup(id: ID!, input: PartnerGroupInput!): PartnerGroup!
+  addPartnerToGroup(groupId: ID!, partnerId: ID!): GroupPartner!
+  removePartnerFromGroup(groupId: ID!, partnerId: ID!): Boolean!
+
+  # Campaign mutations
+  createCampaign(input: CampaignInput!): Campaign!
+  updateCampaign(id: ID!, input: CampaignInput!): Campaign!
+  activateCampaign(id: ID!): Campaign!
+  deactivateCampaign(id: ID!): Campaign!
+
+  # Link mutations
+  createLink(input: LinkInput!): Link!
+  updateLink(id: ID!, input: LinkInput!): Link!
+  createLinkAlias(linkId: ID!, alias: String!): LinkAlias!
+
+  # Offer mutations
+  createOffer(input: OfferInput!): Offer!
+  updateOffer(id: ID!, input: OfferInput!): Offer!
+
+  # Coupon mutations
+  createCoupon(input: CouponInput!): Coupon!
+  updateCoupon(id: ID!, input: CouponInput!): Coupon!
+  deactivateCoupon(id: ID!): Coupon!
+
+  # Lead mutations
+  createLead(input: LeadInput!): Lead!
+  updateLead(id: ID!, input: LeadInput!): Lead!
+  updateLeadStatus(id: ID!, status: LeadStatus!): Lead!
+
+  # Transaction mutations
+  createTransaction(input: TransactionInput!): Transaction!
+  confirmTransaction(id: ID!): Transaction!
+  cancelTransaction(id: ID!, reason: String): Transaction!
+  refundTransaction(id: ID!, reason: String): Transaction!
+
+  # Reward mutations
+  approveReward(id: ID!): Reward!
+  cancelReward(id: ID!, reason: String): Reward!
+
+  # Payout mutations
+  createPayout(input: PayoutInput!): Payout!
+  processPayout(id: ID!): Payout!
+  cancelPayout(id: ID!, reason: String): Payout!
+
+  # Application mutations
+  submitApplication(input: ApplicationInput!): Application!
+  approveApplication(id: ID!): Application!
+  rejectApplication(id: ID!, reason: String): Application!
+
+  # User mutations
+  createUser(input: UserInput!): User!
+  updateUser(id: ID!, input: UserInput!): User!
+  updateUserRole(id: ID!, role: UserRole!): User!
+  deactivateUser(id: ID!): User!
+
+  # Integration mutations
+  configureSlackIntegration(input: SlackIntegrationInput!): SlackIntegration!
+  configureJiraIntegration(input: JiraIntegrationInput!): JiraIntegration!
+  createWebhook(input: WebhookInput!): Webhook!
+  updateWebhook(id: ID!, input: WebhookInput!): Webhook!
+  deleteWebhook(id: ID!): Boolean!
+
+  # API Key mutations
+  createAPIKey(label: String!, scopes: [String!]): APIKey!
+  revokeAPIKey(id: ID!): Boolean!
+}
+
+# ─── Input Types ──────────────────────────────────────────────────────────────
+
+input PartnerInput {
+  name: String
+  email: String
+  type: PartnerType
+  groupId: ID
+  campaignId: ID
+  customFields: JSON
+}
+
+input PartnerGroupInput {
+  name: String!
+  campaignId: ID
+  description: String
+  industry: String
+  region: String
+}
+
+input CampaignInput {
+  name: String!
+  type: CampaignType!
+  goal: CampaignGoal
+  startDate: DateTime
+  endDate: DateTime
+  description: String
+  landingPageUrl: URL
+}
+
+input LinkInput {
+  label: String
+  destinationUrl: URL!
+  partnerId: ID
+  campaignId: ID
+  utmParameters: JSON
+}
+
+input OfferInput {
+  name: String!
+  type: OfferType!
+  campaignId: ID
+  discountValue: Float
+  discountPercentage: Float
+  freeTrialDays: Int
+  expirationDate: DateTime
+}
+
+input CouponInput {
+  code: String!
+  offerId: ID
+  partnerId: ID
+  campaignId: ID
+  maxUsages: Int
+  expirationDate: DateTime
+}
+
+input LeadInput {
+  email: String!
+  firstName: String
+  lastName: String
+  company: String
+  partnerId: ID
+  campaignId: ID
+  customFields: JSON
+}
+
+input TransactionInput {
+  customerId: ID
+  partnerId: ID
+  campaignId: ID
+  amount: Float!
+  currency: String!
+  productId: String
+  referenceId: String
+  metadata: JSON
+}
+
+input PayoutInput {
+  partnerId: ID!
+  method: PayoutMethod!
+  rewardIds: [ID!]
+}
+
+input ApplicationInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  company: String
+  website: URL
+  campaignId: ID
+  referralSource: String
+  notes: String
+  customFields: JSON
+}
+
+input UserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  role: UserRole
+  timezone: String
+}
+
+input SlackIntegrationInput {
+  workspaceId: String!
+  channelId: String
+  botToken: String!
+  notificationEvents: [String!]
+}
+
+input JiraIntegrationInput {
+  projectKey: String!
+  boardId: String
+  issueTypeMapping: JSON
+}
+
+input WebhookInput {
+  url: URL!
+  events: [String!]!
+  secret: String
+  integrationId: ID
+}
