@@ -1,0 +1,317 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PartnerStack API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List partnerships",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.partnerstack.com/api/v2/partnerships",
+        "params": [
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "starting_after",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "ending_before",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "order_by",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "has_sub_id",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "include_offers",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "include_archived",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns partnerships managed or owned by the authenticated user."
+    },
+    {
+      "info": {
+        "name": "List customers",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.partnerstack.com/api/v2/customers",
+        "params": [
+          {
+            "name": "min_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "max_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "min_updated",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "max_updated",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "group",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "partner_key",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "starting_after",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "ending_before",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns a paginated list of customers ordered by creation date."
+    },
+    {
+      "info": {
+        "name": "Create a customer",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.partnerstack.com/api/v2/customers",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Creates a new customer."
+    },
+    {
+      "info": {
+        "name": "List deals",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.partnerstack.com/api/v2/deals",
+        "params": [
+          {
+            "name": "min_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "max_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "min_updated",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "max_updated",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "group",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "partner_key",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "customer_key",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "starting_after",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "ending_before",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns a list of deals sorted by creation date."
+    },
+    {
+      "info": {
+        "name": "List transactions",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.partnerstack.com/api/v2/transactions",
+        "params": [
+          {
+            "name": "min_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "max_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "order_by",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "starting_after",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "ending_before",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns transactions sorted by creation date."
+    },
+    {
+      "info": {
+        "name": "List rewards",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.partnerstack.com/api/v2/rewards",
+        "params": [
+          {
+            "name": "payment_status",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "order_by",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "company_key",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "group_key",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "customer_key",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "invoice_key",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "keywords",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "min_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "max_created",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "limit",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "starting_after",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "ending_before",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Returns a paginated list of rewards."
+    }
+  ],
+  "bundled": true
+}

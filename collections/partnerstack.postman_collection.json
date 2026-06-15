@@ -1,0 +1,938 @@
+{
+  "item": [
+    {
+      "id": "01e11ef5-2791-4ccd-92f6-c2eb1564672c",
+      "name": "List partnerships",
+      "request": {
+        "name": "List partnerships",
+        "description": {
+          "content": "Returns partnerships managed or owned by the authenticated user.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "partnerships"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "disabled": false,
+              "key": "starting_after",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "ending_before",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "order_by",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "has_sub_id",
+              "value": "<boolean>"
+            },
+            {
+              "disabled": false,
+              "key": "include_offers",
+              "value": "<boolean>"
+            },
+            {
+              "disabled": false,
+              "key": "include_archived",
+              "value": "<boolean>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ce629d14-078a-4565-9438-2fd584d9c91b",
+          "name": "Partnerships list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "partnerships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ending_before",
+                  "value": "<string>"
+                },
+                {
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "key": "has_sub_id",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "include_offers",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "include_archived",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"has_more\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ec1165a0-c8e5-479e-b4c7-b15d1c24a3e9",
+      "name": "List customers",
+      "request": {
+        "name": "List customers",
+        "description": {
+          "content": "Returns a paginated list of customers ordered by creation date.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "customers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "min_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "max_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "min_updated",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "max_updated",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "group",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "partner_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "disabled": false,
+              "key": "starting_after",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "ending_before",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "03a89e48-809e-4da6-b2d7-eeac5d7c3f45",
+          "name": "Customers list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "min_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "max_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "min_updated",
+                  "value": "<long>"
+                },
+                {
+                  "key": "max_updated",
+                  "value": "<long>"
+                },
+                {
+                  "key": "group",
+                  "value": "<string>"
+                },
+                {
+                  "key": "partner_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"has_more\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "50cbb9bd-1afa-45f9-9d40-5da9f35240b9",
+      "name": "Create a customer",
+      "request": {
+        "name": "Create a customer",
+        "description": {
+          "content": "Creates a new customer.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "customers"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"<email>\",\n  \"partner_key\": \"<string>\",\n  \"customer_key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"meta\": \"<object>\",\n  \"provider_key\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "0392130d-b16a-484d-a3f5-b456a8fdbcaa",
+          "name": "Customer created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"partner_key\": \"<string>\",\n  \"customer_key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"meta\": \"<object>\",\n  \"provider_key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key\": \"string\",\n  \"customer_key\": \"string\",\n  \"email\": \"string\",\n  \"name\": \"string\",\n  \"partner_key\": \"string\",\n  \"provider_key\": \"string\",\n  \"meta\": {},\n  \"created_at\": 5395\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f14a0b91-0978-4abf-bd21-a1e244eb5df6",
+      "name": "List deals",
+      "request": {
+        "name": "List deals",
+        "description": {
+          "content": "Returns a list of deals sorted by creation date.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "deals"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "min_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "max_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "min_updated",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "max_updated",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "group",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "partner_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "customer_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "customer_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "disabled": false,
+              "key": "starting_after",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "ending_before",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ea13f128-dc62-4655-b710-798537e40328",
+          "name": "Deals list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "deals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "min_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "max_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "min_updated",
+                  "value": "<long>"
+                },
+                {
+                  "key": "max_updated",
+                  "value": "<long>"
+                },
+                {
+                  "key": "group",
+                  "value": "<string>"
+                },
+                {
+                  "key": "partner_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "customer_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "customer_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"has_more\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "12325905-32ee-4982-a6f7-a0b5d0d4c4ca",
+      "name": "List transactions",
+      "request": {
+        "name": "List transactions",
+        "description": {
+          "content": "Returns transactions sorted by creation date.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "transactions"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "min_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "max_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "order_by",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "disabled": false,
+              "key": "starting_after",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "ending_before",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "01638f8b-5f21-4df1-8cc8-32b3c40684d4",
+          "name": "Transactions list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "min_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "max_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"has_more\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d5a666f0-4767-4a88-91f7-a063bc4c2656",
+      "name": "List rewards",
+      "request": {
+        "name": "List rewards",
+        "description": {
+          "content": "Returns a paginated list of rewards.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "rewards"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "payment_status",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "order_by",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "company_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "group_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "customer_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "invoice_key",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "keywords",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "min_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "max_created",
+              "value": "<long>"
+            },
+            {
+              "disabled": false,
+              "key": "limit",
+              "value": "10"
+            },
+            {
+              "disabled": false,
+              "key": "starting_after",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "ending_before",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6b71a397-c5a9-4649-8b17-274ba0014255",
+          "name": "Rewards list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "rewards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "payment_status",
+                  "value": "<string>"
+                },
+                {
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "key": "company_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "group_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "customer_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "invoice_key",
+                  "value": "<string>"
+                },
+                {
+                  "key": "keywords",
+                  "value": "<string>"
+                },
+                {
+                  "key": "min_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "max_created",
+                  "value": "<long>"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: basic",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"has_more\": false\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.partnerstack.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "77b8c4d9-dcab-405e-b0a3-dd0bf1b5d0b6",
+    "name": "PartnerStack API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The PartnerStack API allows you to integrate with the PartnerStack platform to manage partnerships, customers, deals, transactions, rewards, and more.\n\nContact Support:\n Name: PartnerStack Support",
+      "type": "text/plain"
+    }
+  }
+}
