@@ -36,6 +36,10 @@ apis:
   - url: graphql/partnerstack-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/partnerstack-domain-security.yml
+- type: Authentication
+  url: authentication/partnerstack-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/partnerstack
 - type: LinkedIn

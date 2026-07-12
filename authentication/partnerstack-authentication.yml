@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/partnerstack-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/partnerstack-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/partnerstack-openapi.yml
