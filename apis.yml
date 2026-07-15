@@ -36,6 +36,8 @@ apis:
   - url: graphql/partnerstack-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/partnerstack-agentic-access.yml
 - type: DomainSecurity
   url: security/partnerstack-domain-security.yml
 - type: Authentication
