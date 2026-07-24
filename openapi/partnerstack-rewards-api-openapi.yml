@@ -1,0 +1,123 @@
+openapi: 3.0.3
+info:
+  title: PartnerStack Customers Rewards API
+  description: The PartnerStack API allows you to integrate with the PartnerStack platform to manage partnerships, customers, deals, transactions, rewards, and more.
+  version: '2.0'
+  contact:
+    name: PartnerStack Support
+    url: https://docs.partnerstack.com/
+servers:
+- url: https://api.partnerstack.com/api/v2
+  description: PartnerStack API v2
+security:
+- basicAuth: []
+- bearerAuth: []
+tags:
+- name: Rewards
+paths:
+  /rewards:
+    get:
+      summary: List rewards
+      description: Returns a paginated list of rewards.
+      operationId: listRewards
+      parameters:
+      - name: payment_status
+        in: query
+        schema:
+          type: string
+          enum:
+          - available
+          - in_transit
+          - withdrawn
+          - paid_externally
+          - expired
+          - failed
+          - merging
+      - name: order_by
+        in: query
+        schema:
+          type: string
+      - name: company_key
+        in: query
+        schema:
+          type: string
+      - name: group_key
+        in: query
+        schema:
+          type: string
+      - name: customer_key
+        in: query
+        schema:
+          type: string
+      - name: invoice_key
+        in: query
+        schema:
+          type: string
+      - name: keywords
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/MinCreated'
+      - $ref: '#/components/parameters/MaxCreated'
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/StartingAfter'
+      - $ref: '#/components/parameters/EndingBefore'
+      responses:
+        '200':
+          description: Rewards list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+      tags:
+      - Rewards
+components:
+  schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+        has_more:
+          type: boolean
+  parameters:
+    MinCreated:
+      name: min_created
+      in: query
+      schema:
+        type: integer
+        format: int64
+    EndingBefore:
+      name: ending_before
+      in: query
+      schema:
+        type: string
+    StartingAfter:
+      name: starting_after
+      in: query
+      schema:
+        type: string
+    MaxCreated:
+      name: max_created
+      in: query
+      schema:
+        type: integer
+        format: int64
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+        minimum: 1
+        maximum: 250
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

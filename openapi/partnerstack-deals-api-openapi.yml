@@ -1,0 +1,115 @@
+openapi: 3.0.3
+info:
+  title: PartnerStack Customers Deals API
+  description: The PartnerStack API allows you to integrate with the PartnerStack platform to manage partnerships, customers, deals, transactions, rewards, and more.
+  version: '2.0'
+  contact:
+    name: PartnerStack Support
+    url: https://docs.partnerstack.com/
+servers:
+- url: https://api.partnerstack.com/api/v2
+  description: PartnerStack API v2
+security:
+- basicAuth: []
+- bearerAuth: []
+tags:
+- name: Deals
+paths:
+  /deals:
+    get:
+      summary: List deals
+      description: Returns a list of deals sorted by creation date.
+      operationId: listDeals
+      parameters:
+      - $ref: '#/components/parameters/MinCreated'
+      - $ref: '#/components/parameters/MaxCreated'
+      - $ref: '#/components/parameters/MinUpdated'
+      - $ref: '#/components/parameters/MaxUpdated'
+      - name: group
+        in: query
+        schema:
+          type: string
+      - name: partner_key
+        in: query
+        schema:
+          type: string
+      - name: customer_key
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/StartingAfter'
+      - $ref: '#/components/parameters/EndingBefore'
+      responses:
+        '200':
+          description: Deals list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+      tags:
+      - Deals
+components:
+  parameters:
+    MaxUpdated:
+      name: max_updated
+      in: query
+      schema:
+        type: integer
+        format: int64
+    MinCreated:
+      name: min_created
+      in: query
+      schema:
+        type: integer
+        format: int64
+    EndingBefore:
+      name: ending_before
+      in: query
+      schema:
+        type: string
+    StartingAfter:
+      name: starting_after
+      in: query
+      schema:
+        type: string
+    MaxCreated:
+      name: max_created
+      in: query
+      schema:
+        type: integer
+        format: int64
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+        minimum: 1
+        maximum: 250
+    MinUpdated:
+      name: min_updated
+      in: query
+      schema:
+        type: integer
+        format: int64
+  schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+        has_more:
+          type: boolean
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
