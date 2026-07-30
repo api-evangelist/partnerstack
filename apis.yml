@@ -4,9 +4,22 @@ description: PartnerStack is a partner-led growth platform that powers the partn
   programs of leading B2B SaaS companies. The PartnerStack API provides programmatic
   access to partnerships, customers, deals, transactions, and rewards.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/partnerstack.png
 tags:
 - Partnerships
 - Affiliate
@@ -16,25 +29,86 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/partnerstack/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: partnerstack:partnerstack
-  name: PartnerStack
-  description: Programmatic access to PartnerStack partnerships, customers, deals,
-    transactions, and rewards via the v2 REST API.
+- aid: partnerstack:partnerstack-customers-api
+  name: PartnerStack Customers API
+  description: The Customers API from PartnerStack — 1 operation(s) for customers.
   humanURL: https://docs.partnerstack.com/
   baseURL: https://api.partnerstack.com/api/v2
   tags:
-  - Partnerships
-  - Affiliate
-  - SaaS
+  - Customers
   properties:
+  - type: OpenAPI
+    url: openapi/partnerstack-customers-api-openapi.yml
   - type: Documentation
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
+  - type: GraphQL
+    url: graphql/partnerstack-graphql.md
+- aid: partnerstack:partnerstack-deals-api
+  name: PartnerStack Deals API
+  description: The Deals API from PartnerStack — 1 operation(s) for deals.
+  humanURL: https://docs.partnerstack.com/
+  baseURL: https://api.partnerstack.com/api/v2
+  tags:
+  - Deals
+  properties:
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/partnerstack/refs/heads/main/openapi/partnerstack-openapi.yml
-  - url: graphql/partnerstack-graphql.md
-    type: GraphQL
+    url: openapi/partnerstack-deals-api-openapi.yml
+  - type: Documentation
+    url: https://docs.partnerstack.com/
+  - type: APIReference
+    url: https://docs.partnerstack.com/reference
+  - type: GraphQL
+    url: graphql/partnerstack-graphql.md
+- aid: partnerstack:partnerstack-partnerships-api
+  name: PartnerStack Partnerships API
+  description: The Partnerships API from PartnerStack — 1 operation(s) for partnerships.
+  humanURL: https://docs.partnerstack.com/
+  baseURL: https://api.partnerstack.com/api/v2
+  tags:
+  - Partnerships
+  properties:
+  - type: OpenAPI
+    url: openapi/partnerstack-partnerships-api-openapi.yml
+  - type: Documentation
+    url: https://docs.partnerstack.com/
+  - type: APIReference
+    url: https://docs.partnerstack.com/reference
+  - type: GraphQL
+    url: graphql/partnerstack-graphql.md
+- aid: partnerstack:partnerstack-rewards-api
+  name: PartnerStack Rewards API
+  description: The Rewards API from PartnerStack — 1 operation(s) for rewards.
+  humanURL: https://docs.partnerstack.com/
+  baseURL: https://api.partnerstack.com/api/v2
+  tags:
+  - Rewards
+  properties:
+  - type: OpenAPI
+    url: openapi/partnerstack-rewards-api-openapi.yml
+  - type: Documentation
+    url: https://docs.partnerstack.com/
+  - type: APIReference
+    url: https://docs.partnerstack.com/reference
+  - type: GraphQL
+    url: graphql/partnerstack-graphql.md
+- aid: partnerstack:partnerstack-transactions-api
+  name: PartnerStack Transactions API
+  description: The Transactions API from PartnerStack — 1 operation(s) for transactions.
+  humanURL: https://docs.partnerstack.com/
+  baseURL: https://api.partnerstack.com/api/v2
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/partnerstack-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.partnerstack.com/
+  - type: APIReference
+    url: https://docs.partnerstack.com/reference
+  - type: GraphQL
+    url: graphql/partnerstack-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/partnerstack-agentic-access.yml
