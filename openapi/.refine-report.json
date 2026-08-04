@@ -1,0 +1,22 @@
+{
+  "provider": "partnerstack",
+  "sources": [
+    "partnerstack-customers-api-openapi.yml",
+    "partnerstack-deals-api-openapi.yml",
+    "partnerstack-partnerships-api-openapi.yml",
+    "partnerstack-rewards-api-openapi.yml",
+    "partnerstack-transactions-api-openapi.yml"
+  ],
+  "outputs": [
+    "partnerstack-customers-api-openapi.yml",
+    "partnerstack-deals-api-openapi.yml",
+    "partnerstack-partnerships-api-openapi.yml",
+    "partnerstack-rewards-api-openapi.yml",
+    "partnerstack-transactions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
