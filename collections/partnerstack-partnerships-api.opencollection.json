@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PartnerStack Customers Partnerships API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Partnerships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List partnerships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.partnerstack.com/api/v2/partnerships",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_sub_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_offers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_archived",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns partnerships managed or owned by the authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

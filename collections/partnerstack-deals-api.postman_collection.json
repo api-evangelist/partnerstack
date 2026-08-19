@@ -1,0 +1,224 @@
+{
+  "item": [
+    {
+      "id": "f9d193d9-a91b-4cba-afc6-5f4095334c07",
+      "name": "Deals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb387bcd-a7c5-43af-81cc-bec4b352d364",
+          "name": "List deals",
+          "request": {
+            "name": "List deals",
+            "description": {
+              "content": "Returns a list of deals sorted by creation date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "min_created",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_created",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_updated",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_updated",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "group",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "partner_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed58bb18-9b1e-4d56-baba-5bdfd158b9c4",
+              "name": "Deals list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_created",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_created",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "min_updated",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_updated",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "group",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "partner_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"has_more\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.partnerstack.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6e42f7fd-c65d-47d0-92eb-1427b2d314c3",
+    "name": "PartnerStack Customers Deals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The PartnerStack API allows you to integrate with the PartnerStack platform to manage partnerships, customers, deals, transactions, rewards, and more.\n\nContact Support:\n Name: PartnerStack Support",
+      "type": "text/plain"
+    }
+  }
+}

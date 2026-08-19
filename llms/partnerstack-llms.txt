@@ -1,0 +1,153 @@
+# PartnerStack Documentation
+
+> PartnerStack connects to key events in your business to automatically incentivize and reward partners like resellers, consultants, and ambassadors. By fingerprinting traffic from your partners, PartnerStack's technology identifies and rewards the people and organizations growing your business.
+
+## Guides
+- [What is PartnerStack?](https://docs.partnerstack.com/docs/getting-started.md)
+- [Planning your implementation](https://docs.partnerstack.com/docs/plan-your-implementation.md): A short primer on partnerships and approaching your integration
+- [Glossary](https://docs.partnerstack.com/docs/glossary-and-objects.md): Learn the significance of terminology commonly used in the PartnerStack documentation.
+- [Object model](https://docs.partnerstack.com/docs/object-model.md): High-level model of the core object relationships in Partnerstack
+- [Introduction to Workato](https://docs.partnerstack.com/docs/getting-started-with-the-integration-suite.md): Get started with the PartnerStack integration suite
+- [Introduction to link tracking](https://docs.partnerstack.com/docs/partnerstackjs.md)
+- [Step 1: Install PartnerStackJS](https://docs.partnerstack.com/docs/step-1-install-partnerstackjs.md): In this guide, we'll show you how to install PartnerStackJS to your site so you can use it to record customer signup events from your website in PartnerStack
+- [Step 2: Track Signup Events](https://docs.partnerstack.com/docs/step-2-track-signup-events.md): In this guide, we'll use PartnerStackJS to capture referred customers to your product when a user signs up for your product on your website from a referral link
+- [Step 3: Testing and Debugging](https://docs.partnerstack.com/docs/step-3-testing-and-debugging.md)
+- [Examples](https://docs.partnerstack.com/docs/examples.md)
+- [HubSpot Forms](https://docs.partnerstack.com/docs/hubspot-forms.md)
+- [HubSpot Forms (iFrame)](https://docs.partnerstack.com/docs/hubspot-forms-iframe.md): If your HubSpot Form isn't embedded into your website as raw HTML, this guide may help you use PartnerStackJS to capture form submissions!
+- [Marketo Forms](https://docs.partnerstack.com/docs/marketo-forms.md)
+- [Google Tag Manager](https://docs.partnerstack.com/docs/google-tag-manager-1.md)
+- [Advanced Usage](https://docs.partnerstack.com/docs/advanced-usage.md)
+- [Introduction to server to server (S2S) tracking](https://docs.partnerstack.com/docs/server-to-server-s2s-tracking.md)
+- [Step 1: Getting Click ID](https://docs.partnerstack.com/docs/getting-integrated-with-s2s.md)
+- [Step 2: Create Token to authorize S2S requests](https://docs.partnerstack.com/docs/step-2-create-token-to-authorize-s2s-requests.md)
+- [Step 3: Tracking conversions](https://docs.partnerstack.com/docs/step-3-tracking-conversions.md)
+- [Step 4: Where to see this data in PartnerStack](https://docs.partnerstack.com/docs/step-4-where-to-see-this-data-in-partnerstack.md)
+- [Transitioning from Customer API to S2S tracking](https://docs.partnerstack.com/docs/migrating-customer-api-to-server-to-server.md)
+- [Introduction to Leads & Deals](https://docs.partnerstack.com/docs/introduction.md): Let's get working with Leads and Deals
+- [Sync Leads to CRM](https://docs.partnerstack.com/docs/lead-to-crm.md): Basic Lead to CRM flow
+- [Sync Deals to CRM](https://docs.partnerstack.com/docs/sync-deals-to-crm.md): Basic Deal to CRM flow
+- [Push new leads to partners](https://docs.partnerstack.com/docs/sync-crm-to-deals.md): Pass your inbound leads down to your channel partners
+- [HubSpot](https://docs.partnerstack.com/docs/hubspot.md)
+- [HubSpot Authentication](https://docs.partnerstack.com/docs/hubspot-authentication.md): Authenticate your HubSpot account
+- [Syncing Leads to HubSpot contacts](https://docs.partnerstack.com/docs/syncing-leads-to-hubspot-contacts.md)
+- [Salesforce](https://docs.partnerstack.com/docs/salesforce.md): Seamlessly connect Salesforce CRM to PartnerStack
+- [Salesforce Authentication](https://docs.partnerstack.com/docs/salesforce-authentication.md): Connect Salesforce to PartnerStack to surface information about partner leads and deals in Salesforce!
+- [Syncing Deals to Salesforce Opportunities](https://docs.partnerstack.com/docs/syncing-deals-to-salesforce-opportunities.md)
+- [Pipedrive](https://docs.partnerstack.com/docs/pipedrive.md)
+- [Pipedrive Authentication](https://docs.partnerstack.com/docs/pipedrive-authentication.md): Authenticate your Pipedrive account
+- [Vendor API](https://docs.partnerstack.com/docs/partnerstack-api.md): REST API for vendors
+- [Webhooks](https://docs.partnerstack.com/docs/partnerstack-webhooks.md): Listen for events in your PartnerStack instance as they occur.
+- [Report Export API](https://docs.partnerstack.com/docs/exporting-reports-via-the-partnerstack-api.md): Exporting vendor reports via the PartnerStack API
+- [Partner API](https://docs.partnerstack.com/docs/partner-api.md)
+- [Postbacks](https://docs.partnerstack.com/docs/postbacks.md): Listen for events as a Partner in your PartnerStack instance as they occur.
+- [Introduction to payment webhooks](https://docs.partnerstack.com/docs/introduction-payments.md): The different ways you can track customer payments on PartnerStack, so your partners can be rewarded for revenue attributed to them.
+- [Stripe Payment Tracking](https://docs.partnerstack.com/docs/stripe-payment-tracking.md): This integration will make sure that your customer purchases are tracked.
+- [Chargebee Webhook](https://docs.partnerstack.com/docs/chargebee-webhook.md): This integration will make sure that your customer purchases are tracked.
+- [Recurly Webhook](https://docs.partnerstack.com/docs/recurly-webhook.md): This integration will make sure that your customer purchases are tracked.
+- [Maxio Webhook](https://docs.partnerstack.com/docs/chargify-webhook.md): This integration will make sure that your customer purchases are tracked.
+- [Paddle checkout](https://docs.partnerstack.com/docs/paddle-checkout.md): Integrate PartnerStack with your Paddle.com powered checkout
+- [Testing and Troubleshooting Payment Tracking](https://docs.partnerstack.com/docs/troubleshooting-webhooks.md): Guides to help you to test payment tracking and figure out next steps if you aren't seeing events from your payment platform show up in PartnerStack.
+- [Fraud Monitoring](https://docs.partnerstack.com/docs/fraud-monitoring.md)
+- [User Authentication (SAML, OAuth)](https://docs.partnerstack.com/docs/user-authentication-saml-oauth.md)
+- [GDPR & CCPA](https://docs.partnerstack.com/docs/gdpr-ccpa.md): You own your data, and we respect that.
+- [Introduction to testing](https://docs.partnerstack.com/docs/introduction-testing.md)
+- [Creating Test Partner](https://docs.partnerstack.com/docs/creating-test-partner.md)
+- [Referral Link Flow](https://docs.partnerstack.com/docs/referral-link-flow.md)
+- [Lead Submission Flow](https://docs.partnerstack.com/docs/lead-submission-flow.md)
+- [Deal Registration Flow](https://docs.partnerstack.com/docs/deal-registration-flow.md)
+- [Sending Test Transactions](https://docs.partnerstack.com/docs/sending-test-transactions.md)
+- [Rewards with Triggers](https://docs.partnerstack.com/docs/rewards-with-triggers.md)
+- [Next Steps](https://docs.partnerstack.com/docs/next-steps.md)
+- [Data Importer](https://docs.partnerstack.com/docs/universal-importer.md): Importing data into your channel program
+- [Referral iFrame](https://docs.partnerstack.com/docs/referral-iframe.md)
+
+## API Reference
+- [Partner API Authentication](https://docs.partnerstack.com/reference/partner-api-authentication.md)
+- [Vendor API Authentication](https://docs.partnerstack.com/reference/auth.md)
+- [Rate Limits](https://docs.partnerstack.com/reference/rate-limits.md)
+- [Assign partnership to deal](https://docs.partnerstack.com/reference/post_deals-deal-key-assignment-partnership-key-stack-key-1.md): Assign the provided partnership to the provided deal.
+- [Get deal file](https://docs.partnerstack.com/reference/get_deals-deal-key-file-file-key-1.md): Get the file for the deal.
+- [List all deals](https://docs.partnerstack.com/reference/get_v2-deals.md): Returns a list of your deals. The deals are     returned sorted by creation date, with the most recent deals     appearing first.
+- [Create a deal](https://docs.partnerstack.com/reference/post_v2-deals.md): Creates a deal with desired params.
+- [Retrieve the form templates for a deal](https://docs.partnerstack.com/reference/get_v2-deals-form-templates.md): Fetches the specified form templates for a deal.
+- [Archive a deal](https://docs.partnerstack.com/reference/delete_v2-deals-deal-key.md): Archives the specified deal
+- [Retrieve a deal](https://docs.partnerstack.com/reference/get_v2-deals-deal-key.md): Retrieves the details of an existing deal. You need only supply the unique deal key that was returned upon deal creation.
+- [Update a deal](https://docs.partnerstack.com/reference/patch_v2-deals-deal-key.md): Updates the specified deal by setting the values of     the parameters passed. Any parameters not provided will be left     unchanged.
+- [Convert a deal](https://docs.partnerstack.com/reference/post_v2-deals-deal-key-convert.md): Converts a deal to a customer
+- [Get files attached to a deal](https://docs.partnerstack.com/reference/get_v2-deals-deal-key-files-1.md): Gets the files attached to the specified deal
+- [List disti listing categories](https://docs.partnerstack.com/reference/get_disti-listings-categories.md): Returns the AppDirect-aligned category taxonomy used by the disti listing create flow. Each entry carries the stable AppDirect `id`, our `slug`, the display `name`, and the `productLine`.
+- [List all actions](https://docs.partnerstack.com/reference/get_v2-actions-2.md): Returns a list of your actions. The actions are returned sorted by creation date by default, with the most recent actions appearing first.
+- [Record action](https://docs.partnerstack.com/reference/post_v2-actions-1.md): Records a new action taken by a given partner or customer, and the number of times that action was performed.
+- [Archive an action](https://docs.partnerstack.com/reference/delete_v2-actions-action-key-1.md): Archives an action. Any associated rewards or drip rewards will be archived as well.
+- [Create an Application](https://docs.partnerstack.com/reference/post_v2-applications.md): Create an application for a partner with desired params.
+- [Bulk Decision Applications](https://docs.partnerstack.com/reference/patch_v2-applications-decision.md): Update the decision of the given Applications provided
+- [Decision an Application](https://docs.partnerstack.com/reference/patch_v2-applications-application-key-decision.md): Update the decision of the given Application
+- [List Applications](https://docs.partnerstack.com/reference/get_v2-applications.md): Returns a cursor-paginated list of applications submitted to your company. Results are ordered by creation date descending by default. Use the `starting_after` or `ending_before` cursor parameters to page through results.
+- [List all customers](https://docs.partnerstack.com/reference/get_v2-customers-2.md): Returns a list of your customers. The customers are returned sorted by creation date by default, with the most recent customers appearing first.
+- [Create a customer](https://docs.partnerstack.com/reference/post_v2-customers-1.md): Creates a new customer with the data provided.<br>⚠️ **Please note:** this endpoint cannot associate a customer signup with a link or a click, which results in signups, paid customers, and revenue not being accurately attributed to any landing pages or partners. To track your signups from a link or click, please user Server-to-Server instead.
+- [Delete a customer](https://docs.partnerstack.com/reference/delete_v2-customers-customer-key-1.md): Deletes a customer with a given customer key.
+- [Retrieve a customer](https://docs.partnerstack.com/reference/get_v2-customers-customer-key.md): Gets a customer with a given customer key.
+- [Update a customer](https://docs.partnerstack.com/reference/patch_v2-customers-customer-key-1.md): Updates a customer with the data provided. Any parameters not passed will not be updated.
+- [POST - Trigger a base records export](https://docs.partnerstack.com/reference/post_v2-exports-base-records.md): Queues a base records export on behalf of the teammate identified by `member_email`. When omitted under OAuth2 with an actor token, the authenticated user's email is used. The export will be sent to that member's email address. The export is filtered to the base record types that the member can access; if none of the requested `export_types` are accessible a 403 is returned.
+- [List all form templates](https://docs.partnerstack.com/reference/get_v2-form-templates.md): Returns a list of your form templates. The     form templates are returned sorted by creation date, with the most     recent form templates appearing first.
+- [List all groups](https://docs.partnerstack.com/reference/get_v2-groups.md): Returns a list of your groups. The groups are returned sorted by creation date, with the most recent groups appearing first.
+- [List all leads](https://docs.partnerstack.com/reference/get_v2-leads.md): Returns a list of your leads. The leads are     returned sorted by creation date, with the most recent leads     appearing first.
+- [Create a lead](https://docs.partnerstack.com/reference/post_v2-leads.md): Creates a lead with desired params.
+- [Retrieve the form templates for a lead](https://docs.partnerstack.com/reference/get_v2-leads-form-templates.md): Fetches the specified form templates for a lead.
+- [Archive a lead](https://docs.partnerstack.com/reference/delete_v2-leads-lead-key.md): Archives the specified lead.
+- [Retrieve a lead](https://docs.partnerstack.com/reference/get_v2-leads-lead-key.md): Retrieves the details of an existing     lead. You need only supply the unique lead key that was returned     upon lead creation.
+- [Update a lead](https://docs.partnerstack.com/reference/patch_v2-leads-lead-key.md): Updates the specified lead by setting the values     of the parameters passed. Any parameters not provided will be left     unchanged.
+- [Convert a lead](https://docs.partnerstack.com/reference/post_v2-leads-lead-key-convert.md): Converts a lead to a customer
+- [List all links](https://docs.partnerstack.com/reference/get_v2-links-partnership-identifier.md): Allow vendor to fetch all links for a partnership
+- [Retrieve a partner team](https://docs.partnerstack.com/reference/get_v2-partner-team-team-key.md): Retrieves the list of members of a partner team using the team stack key.
+- [List all partnerships](https://docs.partnerstack.com/reference/get_v2-partnerships-2.md): Returns a list of partnerships you manage or are owned by you. The partnerships are returned sorted by creation date by default, with the most recent partnerships appearing first.
+- [Update partnerships](https://docs.partnerstack.com/reference/patch_v2-partnerships.md): Updates a set of partnerships to a new group
+- [Create a partnership](https://docs.partnerstack.com/reference/post_v2-partnerships.md): Creates a new partnership with the data provided. The `claimed` field will default to `false` until the partner claims the partnership.
+- [Archive a partnership](https://docs.partnerstack.com/reference/delete_v2-partnerships-partnership-key.md): Archives a partnership.
+- [Invites or Adds a Partner Member to the given Partnership's Partner Team](https://docs.partnerstack.com/reference/post_v2-partnerships-partner-key-member.md): Invites or Adds a Partner Member to the given Partnership's Partner Team
+- [Update a partnership](https://docs.partnerstack.com/reference/patch_v2-partnerships-partnership-key.md): Updates the specific partnership by setting the values of the parameters passed.
+- [Updates a partnership's tags](https://docs.partnerstack.com/reference/patch_v2-partnerships-partnership-key-tags.md): Add or remove tags from the specified partnership.
+- [Retrieve a partnership](https://docs.partnerstack.com/reference/get_v2-partnerships-unique-identifier.md): Retrieves the details of an existing partnership.
+- [Retrieve all product books for the company](https://docs.partnerstack.com/reference/get_v2-product-book.md): Retrieves all product books for the authenticated company. Able to search by keywords in name or description.
+- [Create a product book](https://docs.partnerstack.com/reference/post_v2-product-book.md): Creates a new product book for the company.
+- [Delete a product book](https://docs.partnerstack.com/reference/delete_v2-product-book-unique-identifier.md): Deletes an existing product book by key
+- [Retrieve a product book](https://docs.partnerstack.com/reference/get_v2-product-book-unique-identifier.md): Retrieves the details of an existing product book.
+- [Update a product book](https://docs.partnerstack.com/reference/patch_v2-product-book-unique-identifier.md): Updates the specified product book by setting the values     of the parameters passed. Any parameters not provided will be left     unchanged.
+- [Retrieve a paginated list of products](https://docs.partnerstack.com/reference/get_v2-products.md): Retrieves the paginated list of products, optionally filtered by customer key, stack key, or click xid.
+- [Create a Product](https://docs.partnerstack.com/reference/post_v2-products.md): Creates a new Product for a customer, based on the given product_book key, customer key, and status.
+- [Delete a Product](https://docs.partnerstack.com/reference/delete_v2-products-unique-identifier.md): Deletes an existing Product, based on the given unique identifier as either an external key or internal key.
+- [Retrieve details of a Product](https://docs.partnerstack.com/reference/get_v2-products-unique-identifier.md): Retrieves the details of an existing Product, based on the given unique identifier as either an external key or internal key.
+- [Update details of a Product](https://docs.partnerstack.com/reference/patch_v2-products-unique-identifier.md): Updates the details of an existing Product, based on the given unique identifier as either an external key or internal key.
+- [List all rewards](https://docs.partnerstack.com/reference/get_v2-rewards-2.md): Returns a list of your rewards. The rewards are returned sorted by creation date by default, with the most recent rewards appearing first.
+- [Create a reward](https://docs.partnerstack.com/reference/post_v2-rewards.md): Creates a new reward for a given target.
+- [Retrieve Sales Cycle Stages](https://docs.partnerstack.com/reference/get_v2-sales-cycles-object-type-stages.md): Retrieves configured Sales Cycle Stages for a company or group (if group_key argument provided)
+- [List all tiers](https://docs.partnerstack.com/reference/get_v2-tiers.md): Returns a list of all tiers.
+- [Create a tier](https://docs.partnerstack.com/reference/post_v2-tiers.md): Creates a new tier for the given tier collection
+- [Get V2](https://docs.partnerstack.com/reference/get_v2-tiers-collection.md): Get all tier collections for a company
+- [Post V2](https://docs.partnerstack.com/reference/post_v2-tiers-collection.md): Create a tier collection for a company
+- [Get V2](https://docs.partnerstack.com/reference/get_v2-tiers-collection-collection-key.md): Get a tier collection by key
+- [Patch V2](https://docs.partnerstack.com/reference/patch_v2-tiers-collection-collection-key.md): Update a tier collection for a company. Any parameters not passed will not be updated.
+- [Retrieve a tier](https://docs.partnerstack.com/reference/get_v2-tiers-tier-key.md): Retrieves the details of an existing Tier.
+- [Update a tier](https://docs.partnerstack.com/reference/patch_v2-tiers-tier-key.md): Updates an existing tier with the data provided. Any parameters not passed will not be updated.
+- [List all transactions](https://docs.partnerstack.com/reference/get_v2-transactions-2.md): Returns a list of your transactions. The transactions are returned sorted by creation date, with the most recent transactions appearing first.
+- [Create a transaction](https://docs.partnerstack.com/reference/post_v2-transactions.md): Creates a new transaction  Note that `customer_external_key` or `customer_email` can be provided in place of `customer_key` to reference the customer. The `customer_key` referred in this endpoint corresponds to the internal customer key generated by PartnerStack.  These customer reference fields are required, but mutually exclusive (i.e. you must provide exactly and only one of the three).
+- [Delete a transaction](https://docs.partnerstack.com/reference/delete_v2-transactions-transaction-key.md): Deletes a transaction with a given transaction key.
+- [POST - Export the current results of a custom report](https://docs.partnerstack.com/reference/post_v2-vendor-report-export-vendor-report-configuration-key.md): Request an export of a custom report using the custom report's key.     The export will be sent to the supplied teammate's email.     Each custom report can only be exported once every 2 hours and each teammate email is limited to 20 exports every 2 hours.     A 429 error will be returned if the request exceeds the rate limit.     Note: Exports can take up to 30 minutes to generate.
+- [GET - Retrieve a vendor report export by key](https://docs.partnerstack.com/reference/get_v2-vendor-report-export-export-vendor-report-export-key.md): Retrieve a vendor report export by its key. Returns the export with file_url and file_name populated when the export has a file and is not expired. Archived exports can be retrieved.
+- [Retrieve a custom report](https://docs.partnerstack.com/reference/get_v2-vendor-report-configuration-vendor-report-configuration-key.md): Custom reports are reports that vendors can save and edit in-app. Via the `Performance` tab, vendors can create custom reports and save them for later use. This endpoint will return a custom report that has been saved by the vendor, but not the data from the reports, to view the data from the reports please use the POST - Export endpoint
+- [List all custom reports](https://docs.partnerstack.com/reference/get_v2-vendor-report-configuration-list.md): Custom reports are reports that vendors can save and edit in-app. Via the `Performance` tab, vendors can create custom reports and save them for later use. This endpoint will return a list of all custom reports that have been saved by the vendor, but not the data from the reports, to view the data from the reports please use the POST - Export endpoint
+- [List all webhooks](https://docs.partnerstack.com/reference/get_v2-webhooks.md): Returns a list of your webhooks. The webhooks are     returned sorted by creation date, with the most recent webhooks     appearing first.
+- [Create a webhook](https://docs.partnerstack.com/reference/post_v2-webhooks.md): Webhooks deliver POST requests to the target URL when the specified events are triggered.
+- [Archive a webhook](https://docs.partnerstack.com/reference/delete_v2-webhooks-webhook-key.md): Webhook events will no longer be delivered to the attached endpoints.
+- [Retrieve a webhook](https://docs.partnerstack.com/reference/get_v2-webhooks-webhook-key.md): Retrieves the details of an existing webhook. You     need only supply the unique webhook key that was returned upon     webhook creation.
+- [Update a webhook](https://docs.partnerstack.com/reference/patch_v2-webhooks-webhook-key.md): Updates the specified webhook by setting the values of the parameters passed.
+- [List all actions](https://docs.partnerstack.com/reference/get_v2-actions.md): Returns a list of your actions. The actions are returned sorted by creation date by default, with the most recent actions appearing first.
+- [List all customers](https://docs.partnerstack.com/reference/get_v2-customers-1.md): Returns a list of your customers. The customers are returned sorted by creation date by default, with the most recent customers appearing first.
+- [List all programs](https://docs.partnerstack.com/reference/get_v2-marketplace-programs.md): Returns a list of all active marketplace-listed programs and their details. The programs are returned sorted by creation date by default, with the most recent programs appearing first.
+- [Retrieve a marketplace program](https://docs.partnerstack.com/reference/get_v2-marketplace-programs-company-key.md): Retrieves a marketplace program given its program key.
+- [List all partnerships](https://docs.partnerstack.com/reference/get_v2-partnerships.md): Returns a list of partnerships you manage or are owned by you. The partnerships are returned sorted by creation date by default, with the most recent partnerships appearing first.
+- [List all payouts](https://docs.partnerstack.com/reference/get_v2-payouts.md): Returns a list of your payouts. The payouts are returned sorted by creation date by default, with the most recent payout appearing first.
+- [List all rewards](https://docs.partnerstack.com/reference/get_v2-rewards.md): Returns a list of your rewards. The rewards are returned sorted by creation date by default, with the most recent rewards appearing first.
+- [List all transactions](https://docs.partnerstack.com/reference/get_v2-transactions.md): Returns a list of your transactions. The transactions are returned sorted by creation date, with the most recent transactions appearing first.
+- [Convert a customer](https://docs.partnerstack.com/reference/conversion-api.md): Converts a click on a website to a customer, complete with all website visitor information and partner attribution.

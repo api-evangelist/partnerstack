@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PartnerStack Customers Rewards API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rewards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List rewards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.partnerstack.com/api/v2/rewards",
+            "params": [
+              {
+                "name": "payment_status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "company_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "group_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customer_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "invoice_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keywords",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "min_created",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "max_created",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "starting_after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ending_before",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of rewards."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,233 @@
+{
+  "item": [
+    {
+      "id": "722c2efe-22b9-4f93-bbc5-b9e9bba2dcc8",
+      "name": "Rewards",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c02068ed-07cc-493d-ab81-93a66ea5d0f5",
+          "name": "List rewards",
+          "request": {
+            "name": "List rewards",
+            "description": {
+              "content": "Returns a paginated list of rewards.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rewards"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "payment_status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "company_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "group_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "customer_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "invoice_key",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "keywords",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_created",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_created",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "starting_after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ending_before",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1416fc6b-b46b-4558-8000-9d956aedc4f3",
+              "name": "Rewards list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rewards"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "payment_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "company_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "invoice_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_created",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "max_created",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "starting_after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ending_before",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"has_more\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.partnerstack.com/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b052e937-32bd-4ef0-84e0-cb9eff4c5b1e",
+    "name": "PartnerStack Customers Rewards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The PartnerStack API allows you to integrate with the PartnerStack platform to manage partnerships, customers, deals, transactions, rewards, and more.\n\nContact Support:\n Name: PartnerStack Support",
+      "type": "text/plain"
+    }
+  }
+}
