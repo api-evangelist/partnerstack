@@ -22,6 +22,10 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/partnerstack.png
 tags:
 - Partnerships
+- Affiliates
+- Software-as-a-Service
+tags_raw:
+- Partnerships
 - Affiliate
 - SaaS
 created: '2025-02-08'
@@ -99,6 +103,8 @@ apis:
   humanURL: https://docs.partnerstack.com/
   baseURL: https://api.partnerstack.com/api/v2
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
