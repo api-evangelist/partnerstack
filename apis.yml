@@ -4,6 +4,17 @@ description: PartnerStack is a partner-led growth platform that powers the partn
   programs of leading B2B SaaS companies. The PartnerStack API provides programmatic
   access to partnerships, customers, deals, transactions, and rewards.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
