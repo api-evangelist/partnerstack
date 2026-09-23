@@ -1,11 +1,7 @@
 {
   "provider": "partnerstack",
   "sources": [
-    "partnerstack-customers-api-openapi.yml",
-    "partnerstack-deals-api-openapi.yml",
-    "partnerstack-partnerships-api-openapi.yml",
-    "partnerstack-rewards-api-openapi.yml",
-    "partnerstack-transactions-api-openapi.yml"
+    "_original/partnerstack-openapi.yml"
   ],
   "outputs": [
     "partnerstack-customers-api-openapi.yml",
@@ -17,6 +13,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "partnerstack-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "partnerstack-openapi.yml: tagged paths GET /partnerships -> Partnerships",
+    "partnerstack-openapi.yml: tagged paths GET /customers -> Customers",
+    "partnerstack-openapi.yml: tagged paths POST /customers -> Customers",
+    "partnerstack-openapi.yml: tagged paths GET /deals -> Deals",
+    "partnerstack-openapi.yml: tagged paths GET /transactions -> Transactions",
+    "partnerstack-openapi.yml: tagged paths GET /rewards -> Rewards",
+    "partnerstack-openapi.yml: declared missing tag: Customers",
+    "partnerstack-openapi.yml: declared missing tag: Deals",
+    "partnerstack-openapi.yml: declared missing tag: Partnerships",
+    "partnerstack-openapi.yml: declared missing tag: Rewards",
+    "partnerstack-openapi.yml: declared missing tag: Transactions",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "partnerstack-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "partnerstack-deals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "partnerstack-partnerships-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "partnerstack-rewards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "partnerstack-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

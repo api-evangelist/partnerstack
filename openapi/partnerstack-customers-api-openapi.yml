@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: PartnerStack Customers API
   description: The PartnerStack API allows you to integrate with the PartnerStack platform to manage partnerships, customers, deals, transactions, rewards, and more.
@@ -60,8 +60,9 @@ paths:
               - partner_key
               properties:
                 customer_key:
-                  type: string
-                  nullable: true
+                  type:
+                  - string
+                  - 'null'
                 email:
                   type: string
                   format: email
@@ -85,7 +86,59 @@ paths:
       tags:
       - Customers
 components:
+  parameters:
+    StartingAfter:
+      name: starting_after
+      in: query
+      schema:
+        type: string
+    MaxUpdated:
+      name: max_updated
+      in: query
+      schema:
+        type: integer
+        format: int64
+    MinUpdated:
+      name: min_updated
+      in: query
+      schema:
+        type: integer
+        format: int64
+    Limit:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        default: 10
+        minimum: 1
+        maximum: 250
+    EndingBefore:
+      name: ending_before
+      in: query
+      schema:
+        type: string
+    MinCreated:
+      name: min_created
+      in: query
+      schema:
+        type: integer
+        format: int64
+    MaxCreated:
+      name: max_created
+      in: query
+      schema:
+        type: integer
+        format: int64
   schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+        has_more:
+          type: boolean
     Customer:
       type: object
       properties:
@@ -106,58 +159,6 @@ components:
         created_at:
           type: integer
           format: int64
-    PaginatedResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-        has_more:
-          type: boolean
-  parameters:
-    MaxUpdated:
-      name: max_updated
-      in: query
-      schema:
-        type: integer
-        format: int64
-    MinCreated:
-      name: min_created
-      in: query
-      schema:
-        type: integer
-        format: int64
-    EndingBefore:
-      name: ending_before
-      in: query
-      schema:
-        type: string
-    StartingAfter:
-      name: starting_after
-      in: query
-      schema:
-        type: string
-    MaxCreated:
-      name: max_created
-      in: query
-      schema:
-        type: integer
-        format: int64
-    Limit:
-      name: limit
-      in: query
-      schema:
-        type: integer
-        default: 10
-        minimum: 1
-        maximum: 250
-    MinUpdated:
-      name: min_updated
-      in: query
-      schema:
-        type: integer
-        format: int64
   securitySchemes:
     basicAuth:
       type: http
