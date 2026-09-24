@@ -59,8 +59,6 @@ apis:
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
-  - type: GraphQL
-    url: graphql/partnerstack-graphql.md
 - aid: partnerstack:partnerstack-deals-api
   name: PartnerStack Deals API
   description: The Deals API from PartnerStack — 1 operation(s) for deals.
@@ -75,8 +73,6 @@ apis:
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
-  - type: GraphQL
-    url: graphql/partnerstack-graphql.md
 - aid: partnerstack:partnerstack-partnerships-api
   name: PartnerStack Partnerships API
   description: The Partnerships API from PartnerStack — 1 operation(s) for partnerships.
@@ -91,8 +87,6 @@ apis:
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
-  - type: GraphQL
-    url: graphql/partnerstack-graphql.md
 - aid: partnerstack:partnerstack-rewards-api
   name: PartnerStack Rewards API
   description: The Rewards API from PartnerStack — 1 operation(s) for rewards.
@@ -107,8 +101,6 @@ apis:
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
-  - type: GraphQL
-    url: graphql/partnerstack-graphql.md
 - aid: partnerstack:partnerstack-transactions-api
   name: PartnerStack Transactions API
   description: The Transactions API from PartnerStack — 1 operation(s) for transactions.
@@ -125,8 +117,6 @@ apis:
     url: https://docs.partnerstack.com/
   - type: APIReference
     url: https://docs.partnerstack.com/reference
-  - type: GraphQL
-    url: graphql/partnerstack-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/partnerstack-agentic-access.yml
