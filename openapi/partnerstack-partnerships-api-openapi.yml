@@ -51,6 +51,11 @@ paths:
       - Partnerships
 components:
   parameters:
+    EndingBefore:
+      name: ending_before
+      in: query
+      schema:
+        type: string
     StartingAfter:
       name: starting_after
       in: query
@@ -64,11 +69,6 @@ components:
         default: 10
         minimum: 1
         maximum: 250
-    EndingBefore:
-      name: ending_before
-      in: query
-      schema:
-        type: string
   schemas:
     PaginatedResponse:
       type: object

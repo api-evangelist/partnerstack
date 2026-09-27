@@ -41,11 +41,6 @@ paths:
       - Transactions
 components:
   parameters:
-    StartingAfter:
-      name: starting_after
-      in: query
-      schema:
-        type: string
     Limit:
       name: limit
       in: query
@@ -54,19 +49,24 @@ components:
         default: 10
         minimum: 1
         maximum: 250
+    MaxCreated:
+      name: max_created
+      in: query
+      schema:
+        type: integer
+        format: int64
     EndingBefore:
       name: ending_before
       in: query
       schema:
         type: string
-    MinCreated:
-      name: min_created
+    StartingAfter:
+      name: starting_after
       in: query
       schema:
-        type: integer
-        format: int64
-    MaxCreated:
-      name: max_created
+        type: string
+    MinCreated:
+      name: min_created
       in: query
       schema:
         type: integer
