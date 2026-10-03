@@ -72,7 +72,22 @@ paths:
       tags:
       - Rewards
 components:
+  schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+        has_more:
+          type: boolean
   parameters:
+    StartingAfter:
+      name: starting_after
+      in: query
+      schema:
+        type: string
     Limit:
       name: limit
       in: query
@@ -87,32 +102,17 @@ components:
       schema:
         type: integer
         format: int64
-    EndingBefore:
-      name: ending_before
-      in: query
-      schema:
-        type: string
-    StartingAfter:
-      name: starting_after
-      in: query
-      schema:
-        type: string
     MinCreated:
       name: min_created
       in: query
       schema:
         type: integer
         format: int64
-  schemas:
-    PaginatedResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-        has_more:
-          type: boolean
+    EndingBefore:
+      name: ending_before
+      in: query
+      schema:
+        type: string
   securitySchemes:
     basicAuth:
       type: http

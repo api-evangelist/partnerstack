@@ -50,12 +50,17 @@ paths:
       tags:
       - Partnerships
 components:
+  schemas:
+    PaginatedResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+        has_more:
+          type: boolean
   parameters:
-    EndingBefore:
-      name: ending_before
-      in: query
-      schema:
-        type: string
     StartingAfter:
       name: starting_after
       in: query
@@ -69,16 +74,11 @@ components:
         default: 10
         minimum: 1
         maximum: 250
-  schemas:
-    PaginatedResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-        has_more:
-          type: boolean
+    EndingBefore:
+      name: ending_before
+      in: query
+      schema:
+        type: string
   securitySchemes:
     basicAuth:
       type: http
