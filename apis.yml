@@ -118,6 +118,9 @@ apis:
   - type: APIReference
     url: https://docs.partnerstack.com/reference
 common:
+- type: CapabilityMap
+  url: capabilities/partnerstack-capability-edges.yml
+  name: PartnerStack Business Capability Map
 - type: AgenticAccess
   url: agentic-access/partnerstack-agentic-access.yml
 - type: DomainSecurity
