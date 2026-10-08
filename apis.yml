@@ -118,6 +118,12 @@ apis:
   - type: APIReference
     url: https://docs.partnerstack.com/reference
 common:
+- type: Plans
+  url: plans/partnerstack-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/partnerstack-rate-limits.yml
+- type: FinOps
+  url: finops/partnerstack-finops.yml
 - url: https://partnerstack.com/resources/articles
   type: Blog
 - type: CapabilityMap
