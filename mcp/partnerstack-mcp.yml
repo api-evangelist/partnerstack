@@ -19,3 +19,53 @@ tools_note: No tool list captured. This manifest records a PROBED, reachable end
   not perform. Run signals/audit_mcp_authorship.py --probe to enumerate tools and settle platform-vs-provider
   authorship. Do NOT derive a tool list from the OpenAPI and store it here -- that is a candidate manifest,
   and it belongs under an X-MCPServerCandidate pointer.
+rfc9728:
+  endpoint: https://mcp.partnerstack.com/mcp
+  metadata_url: https://mcp.partnerstack.com/.well-known/oauth-protected-resource/mcp
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://mcp.partnerstack.com/mcp
+    authorization_servers:
+    - https://mcp.partnerstack.com/
+    scopes_supported:
+    - action:read
+    - action:write
+    - aeo_citation:read
+    - aeo_citation:write
+    - analytics:read
+    - application:read
+    - application:write
+    - billing:read
+    - campaign:read
+    - customer:read
+    - customer:write
+    - deal:read
+    - deal:write
+    - form_template:read
+    - group:read
+    - lead:read
+    - lead:write
+    - material:read
+    - message:read
+    - message:write
+    - partnership:read
+    - partnership:write
+    - product:read
+    - product:write
+    - product_book:read
+    - product_book:write
+    - reward:read
+    - reward:write
+    - sales_cycle:read
+    - transaction:read
+    - transaction:write
+    - webhook:read
+    - webhook:write
+    - link:read
+    - profile
+    - team:read
+    bearer_methods_supported:
+    - header
