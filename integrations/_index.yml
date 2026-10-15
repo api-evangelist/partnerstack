@@ -27,3 +27,16 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
+- slug: partnerstack-stripe-own
+  label: Stripe (own)
+  partner: stripe
+  partner_name: Stripe (own)
+  category: affiliate_and_referrals
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.stripe.com/apps/partnerstack
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
